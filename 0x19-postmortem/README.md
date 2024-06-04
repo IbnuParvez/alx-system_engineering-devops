@@ -15,16 +15,15 @@ Repeated step 3, except on the PID of the www-data process. Kept expectations lo
 
 Looked through files in the /var/www/html/ directory one-by-one, using Vim pattern matching to try and locate the erroneous .phpp file extension. Located it in the wp-settings.php file. (Line 137, require_once( ABSPATH . WPINC . '/class-wp-locale.php' );).
 
-Removed the trailing p from the line.
-
-Tested another curl on the server. 200 A-ok!
-
-Wrote a Puppet manifest to automate fixing of the error.
-
 Summation
+
 In short, a typo. Gotta love'em. In full, the WordPress app was encountering a critical error in wp-settings.php when tyring to load the file class-wp-locale.phpp. The correct file name, located in the wp-content directory of the application folder, was class-wp-locale.php.
 
 Patch involved a simple fix on the typo, removing the trailing p.
 
 Corrective and Preventative Measures
+
 The develops team had a meeting and agreed that after each deployment, the status of the server should be checked to prevent the same event in the nearest future.
+
+We are programmers . We learn from our mistakes. Come On .. Fellow Programmers .. Lets do it
+
